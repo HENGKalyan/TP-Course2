@@ -1,18 +1,43 @@
-?php
+<?php
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    // Define which attributes can be mass-assigned
-    protected $fillable = ['name', 'pricing', 'category_id'];
-    public function category(){
+    protected $dates = ['deleted_at']; // Ensure deleted_at is treated as a date
+    protected $fillable = ['name', 'pricing', 'description', 'images', 'category_id'];
+
+    // Relationships remain the same
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_product')
+                    ->withPivot('quantity', 'price')
+                    ->withTimestamps();
+    }
 }
-<
