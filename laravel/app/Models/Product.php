@@ -1,4 +1,4 @@
-<?php
+?php
 
 namespace App\Models;
 
@@ -10,8 +10,9 @@ class Product extends Model
     use HasFactory;
 
     // Define which attributes can be mass-assigned
-    protected $fillable = ['name', 'price', 'category_id'];
+    protected $fillable = ['name', 'pricing', 'category_id'];
     public function category(){
         return $this->belongsTo(Category::class);
     }
 }
+<
