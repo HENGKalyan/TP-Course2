@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment', function (Blueprint $table) {
+        Schema::create('wishlists', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_id')->unsigned()->nullable();
+            $table->bigInteger('customer_id')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign("product_id")->references('id')->on('products');
+            $table->foreign("customer_id")->references('id')->on('customers');
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment');
+        Schema::dropIfExists('wishlists');
     }
 };

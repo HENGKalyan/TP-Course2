@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cart', function (Blueprint $table) {
-            $table->softDeletes(); // Adds a deleted_at column
+        Schema::create('activity_logs', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('cart', function (Blueprint $table) {
-            $table->dropSoftDeletes(); // Removes the deleted_at column
-        });
+        Schema::dropIfExists('activity_logs');
     }
 };

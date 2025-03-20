@@ -19,7 +19,7 @@ class OrderProduct extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function order()
+    public function orders()
     {
         return $this->belongsTo(Order::class);
     }

@@ -8,7 +8,4 @@ class ActivityLog extends Model
 {
     protected $fillable = ['model', 'model_id', 'action', 'changes'];
     protected $casts = ['changes' => 'array']; // Ensure changes are stored as JSON
-    
-    // Disable updated_at timestamp since we only need created_at
-    public $timestamps = false;
 }
