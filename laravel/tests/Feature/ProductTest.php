@@ -47,7 +47,7 @@ class ProductTest extends TestCase
      */
     public function test_if_we_can_access_create_product_api(): void
     {
-        $category = Category::create([
+        $category = Category::create([ //we need to create a category first bcoz in model the relationship we defined, we need category 
             'name' => 'Electronics',
         ]); // Create a category in the database
         
@@ -59,7 +59,7 @@ class ProductTest extends TestCase
         ]);
 
         // Assert successful creation
-        $response->assertStatus(201); 
+        $response->assertStatus(201); //201 = Created
         $response->assertJsonFragment([
             "message" => "Creating a new product",
             "name" => "test_product_01"

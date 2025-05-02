@@ -86,12 +86,12 @@ class CategoryTest extends TestCase
      */
     public function test_if_we_can_access_get_a_category_by_id_api(): void
     {
-        $category = Category::create([
-            'name' => 'CategoryToGet'
+        $category = Category::create([ //model Category
+            'name' => 'CategoryToGet' 
         ]); // Add a category to database
     
         $response = $this->get("/api/categories/{$category->id}"); // Get the category my ID
-        $response->assertStatus(200)->assertJsonFragment([
+        $response->assertStatus(200)->assertJsonFragment([ //fragment specific data, element
             "id" => $category->id,
             "name" => "CategoryToGet"
         ]);
@@ -114,7 +114,7 @@ class CategoryTest extends TestCase
     public function test_if_we_can_access_update_a_category_by_id_api(): void
     {
         $response = $this->patch('/api/categories/2', ["name" => "test_category_updated"]); // Send Patch request to category with ID=2
-        $response->assertStatus(200)->assertSee([
+        $response->assertStatus(200)->assertSee([ //see: to see data in json
             "id" => 2,
             "name" => "test_category_updated"
         ]); // Check is it successful, and show the updated category
