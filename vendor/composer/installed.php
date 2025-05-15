@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-TP08',
-        'version' => 'dev-TP08',
+        'pretty_version' => 'dev-TP09',
+        'version' => 'dev-TP09',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '63cfd334561d52e84b5bbd5c6ae2eb5a7bde3c08',
+        'reference' => 'd7c61deb30f06655e8845110ea26db4b9d78556a',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-TP08',
-            'version' => 'dev-TP08',
+            'pretty_version' => 'dev-TP09',
+            'version' => 'dev-TP09',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '63cfd334561d52e84b5bbd5c6ae2eb5a7bde3c08',
+            'reference' => 'd7c61deb30f06655e8845110ea26db4b9d78556a',
             'dev_requirement' => false,
         ),
         'aws/aws-crt-php' => array(
