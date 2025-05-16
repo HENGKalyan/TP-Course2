@@ -11,7 +11,7 @@ class UploadController extends Controller
     public function upload(Request $request)
     {
         $request->validate([
-            'document' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'document' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048', 
         ]);
 
         $file = $request->file('document');
